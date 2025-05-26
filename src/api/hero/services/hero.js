@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * slide-img service
+ * hero service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::slide-img.slide-img');
+module.exports = createCoreService('api::hero.hero');

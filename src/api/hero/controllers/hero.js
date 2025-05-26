@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * slide-img controller
+ * hero controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::slide-img.slide-img');
+module.exports = createCoreController('api::hero.hero');
