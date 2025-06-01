@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "new_arrivals",
+  "info": {
+    "singularName": "new-arrival",
+    "pluralName": "new-arrivals",
+    "displayName": "newArrival"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "itemName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "string"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "oldPrice": {
+      "type": "string"
+    }
+  }
+}

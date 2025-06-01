@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "acessories",
+  "info": {
+    "singularName": "acessorie",
+    "pluralName": "acessories",
+    "displayName": "acessorie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "itemName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "string"
+    },
+    "oldPrice": {
+      "type": "string"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

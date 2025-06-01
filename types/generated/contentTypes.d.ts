@@ -402,6 +402,42 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAcessorieAcessorie extends Struct.CollectionTypeSchema {
+  collectionName: 'acessories';
+  info: {
+    displayName: 'acessorie';
+    pluralName: 'acessories';
+    singularName: 'acessorie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    itemName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::acessorie.acessorie'
+    > &
+      Schema.Attribute.Private;
+    oldPrice: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    size: Schema.Attribute.Enumeration<['small', 'medium', 'large']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -592,6 +628,42 @@ export interface ApiHomeHome extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNewArrivalNewArrival extends Struct.CollectionTypeSchema {
+  collectionName: 'new_arrivals';
+  info: {
+    displayName: 'newArrival';
+    pluralName: 'new-arrivals';
+    singularName: 'new-arrival';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    itemName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::new-arrival.new-arrival'
+    > &
+      Schema.Attribute.Private;
+    oldPrice: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    size: Schema.Attribute.Enumeration<['small', 'medium', 'large']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -617,6 +689,76 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::product.product'
+    > &
+      Schema.Attribute.Private;
+    oldPrice: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    size: Schema.Attribute.Enumeration<['small', 'medium', 'large']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiShirtShirt extends Struct.CollectionTypeSchema {
+  collectionName: 'shirts';
+  info: {
+    displayName: 'shirt';
+    pluralName: 'shirts';
+    singularName: 'shirt';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    itemName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::shirt.shirt'> &
+      Schema.Attribute.Private;
+    oldPrice: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    size: Schema.Attribute.Enumeration<['small', 'medium', 'large']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSummerCollectionSummerCollection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'summer_collections';
+  info: {
+    displayName: 'summerCollection';
+    pluralName: 'summer-collections';
+    singularName: 'summer-collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    itemName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::summer-collection.summer-collection'
     > &
       Schema.Attribute.Private;
     oldPrice: Schema.Attribute.String;
@@ -1139,13 +1281,17 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::acessorie.acessorie': ApiAcessorieAcessorie;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::hero.hero': ApiHeroHero;
       'api::home.home': ApiHomeHome;
+      'api::new-arrival.new-arrival': ApiNewArrivalNewArrival;
       'api::product.product': ApiProductProduct;
+      'api::shirt.shirt': ApiShirtShirt;
+      'api::summer-collection.summer-collection': ApiSummerCollectionSummerCollection;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
